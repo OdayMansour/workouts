@@ -1,0 +1,279 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <style type="text/css">
+
+body {
+    background-color: #B3122D;
+}
+
+.long {
+    background-color: #0980B3;
+    color: white;
+}
+
+.short {
+    background-color: #1495CC;
+    color: white;
+}
+
+.group {
+    background-color: #FF002B;
+    color: white;
+    border-bottom: 1px solid #B3122D;
+}
+
+.yellowed {
+    background-color: #F2E6D8;
+    color: #591515;
+}
+
+.exercice {
+    background-color: #82C9D9;
+    color: black;
+}
+
+.set {
+    background-color: #591515;
+    color: #F2E6D8;
+}
+
+.greened {
+    background-color: #F23535;
+    color: black;
+}
+
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    margin-top: 1px;
+    position: relative;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.workout {
+    height: 85px;
+    font-size: 2em;
+    width: 100%;
+    margin-bottom: 41px;
+}
+
+.short, .long {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    height: 125px;
+}
+
+.group {
+    width: 100%;
+    height: 125px;
+    z-index: 9;
+    margin-top: -125px;
+    font-size: 3em;
+    clear: both;
+    position: relative;
+    left: -0%;
+    text-align: center;
+}
+
+.groups-container {
+    height: 630px;
+    position: relative;
+    left: 0%;
+}
+
+.workout-container {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 100%;
+}
+
+.workout-title {
+    height: 63px;
+    z-index: 9;
+    font-size: 5em;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.exercice {
+    font-size: 2em;
+    line-height: 1.4;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.set {
+    width: 60px;
+    line-height: 1.4;
+    text-align: center;
+    display: table-cell;
+}
+
+.exercice-name {
+    margin-left: 10px;
+    padding: 2px;
+    height: 48px;
+}
+
+.expanded {
+    height: 200px;
+}
+
+.sets, .lengths {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.reps {float: right;}
+
+.centered {left: 0px;}
+.lefted {left: -100%;}
+
+.lefted, .centered, .group, .groups-container, .workout-container, body, .yellowed, .exercice-name, .expanded {
+    transition: 0.3s;
+    animation: ease-out;
+}
+
+        </style>
+        <script>
+
+function open_a_group(group) {
+    var groups = document.getElementsByClassName("group");
+    for (var i=0; i<groups.length; i++) {
+        groups[i].classList.remove("lefted");
+    }
+    var myobj = document.getElementsByClassName("group")[group];
+    myobj.classList.add("lefted");
+}
+
+function open_a_workout(id, sets) {
+    var group_container = document.getElementById("groups-container")
+    var workout_container = document.getElementById(id)
+    group_container.classList.add("lefted")
+    document.body.classList.add("yellowed")
+    workout_container.classList.add("centered")
+    total = sets
+}
+
+function complete_a_set(id) {
+    var setobject = document.getElementById(id)
+    if (setobject.classList.contains("greened")) {
+        setobject.classList.remove("greened")
+    } else {
+        setobject.classList.add("greened")
+    }
+}
+
+function show_an_image(id) {
+    var exo = document.getElementById(id)
+    if (exo.classList.contains("expanded")) {
+        exo.classList.remove("expanded")
+    } else {
+        exo.classList.add("expanded")
+    }
+
+}
+
+        </script>
+
+    </head>
+    
+    <body class="" onload="opsen_a_workout('0,0')">
+        <div class="groups-container" id="groups-container">
+            <div class="workout">
+                <div class="lengths">
+                    <div class="short" id="button-0,0" onclick="open_a_workout('0,0')">Short</div>
+                    <div class="long" id="button-0,1" onclick="open_a_workout('0,1')">Long</div>
+                </div>
+                <div class="group" id="button-0" onclick="open_a_group(0)">Legs</div>
+            </div>
+            <div class="workout">
+                <div class="lengths">
+                    <div class="short" id="button-1,0" onclick="open_a_workout('1,0')">Short</div>
+                    <div class="long" id="button-1,1" onclick="open_a_workout('1,1')">Long</div>
+                </div>
+                <div class="group" id="button-1" onclick="open_a_group(1)">Core</div>
+            </div>
+            <div class="workout">
+                <div class="lengths">
+                    <div class="short" id="button-2,0" onclick="open_a_workout('2,0')">Short</div>
+                    <div class="long" id="button-2,1" onclick="open_a_workout('2,1')">Long</div>
+                </div>
+                <div class="group" id="button-2" onclick="open_a_group(2)">Arms</div>
+            </div>
+            <div class="workout">
+                <div class="lengths">
+                    <div class="short" id="button-3,0" onclick="open_a_workout('3,0')">Short</div>
+                    <div class="long" id="button-3,1" onclick="open_a_workout('3,1')">Long</div>
+                </div>
+                <div class="group" id="button-3" onclick="open_a_group(3)">Back</div>
+            </div>
+            <div class="workout">
+                <div class="lengths">
+                    <div class="short" id="button-4,0" onclick="open_a_workout('4,0')">Short</div>
+                    <div class="long" id="button-4,1" onclick="open_a_workout('4,1')">Long</div>
+                </div>
+                <div class="group" id="button-4" onclick="open_a_group(4)">Cardio</div>
+            </div>
+        </div>
+        <div class="workout-container" id="0,0">
+            <div class="workout-title" id="title-0,0">
+                Legs
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,0,0" onclick="show_an_image('0,0,0')">
+                    Squats
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,0,0,0" onclick="complete_a_set('0,0,0,0')">8x</div>
+                    <div class="set" id="0,0,0,1" onclick="complete_a_set('0,0,0,1')">8x</div>
+                    <div class="set" id="0,0,0,2" onclick="complete_a_set('0,0,0,2')">5x</div>
+                    <div class="set" id="0,0,0,3" onclick="complete_a_set('0,0,0,3')">5x</div>
+                    <div class="set" id="0,0,0,4" onclick="complete_a_set('0,0,0,4')">5x</div>
+                </div>
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,0,1" onclick="show_an_image('0,0,1')">
+                    Leg extensions
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,0,1,0" onclick="complete_a_set('0,0,1,0')">10x</div>
+                    <div class="set" id="0,0,1,1" onclick="complete_a_set('0,0,1,1')">10x</div>
+                    <div class="set" id="0,0,1,2" onclick="complete_a_set('0,0,1,2')">7x</div>
+                    <div class="set" id="0,0,1,3" onclick="complete_a_set('0,0,1,3')">4x</div>
+                </div>
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,0,2" onclick="show_an_image('0,0,2')">
+                    Inner leg abduction
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,0,2,0" onclick="complete_a_set('0,0,2,0')">12x</div>
+                    <div class="set" id="0,0,2,1" onclick="complete_a_set('0,0,2,1')">12x</div>
+                    <div class="set" id="0,0,2,2" onclick="complete_a_set('0,0,2,2')">12x</div>
+                </div>
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,0,3" onclick="show_an_image('0,0,3')">
+                    Outer leg abductors
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,0,3,0" onclick="complete_a_set('0,0,3,0')">12x</div>
+                    <div class="set" id="0,0,3,1" onclick="complete_a_set('0,0,3,1')">12x</div>
+                    <div class="set" id="0,0,3,2" onclick="complete_a_set('0,0,3,2')">12x</div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

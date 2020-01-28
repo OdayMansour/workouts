@@ -1,0 +1,219 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <style type="text/css">
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    margin-top: 1px;
+    position: relative;
+    color: white;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.yellowed {
+    background-color: white;
+    color: #B3122D;
+}
+
+.workout {
+    height: 85px;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 2em;
+    width: 100%;
+    margin-bottom: 41px;
+}
+
+.left, .right {
+    width: 50%;
+    height: inherit;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+.right {
+    background-color: #0980B3;
+    color: white;
+}
+
+.left {
+    background-color: #1495CC;
+    color: white;
+}
+
+.group {
+    background-color: white;
+    color: #FF002B;
+    width: 100%;
+    height: 125px;
+    z-index: 9;
+    margin-top: -125px;
+    font-size: 3em;
+    clear: both;
+    position: relative;
+    left: -0%;
+    text-align: center;
+    /* border-bottom: 1px solid #B3122D; */
+}
+
+.groups-container {
+    height: 630px;
+    position: relative;
+    left: 0%;
+}
+
+.workout-container {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 100%;
+    color: black;
+}
+
+.workout-title {
+    height: 63px;
+    color: #B3122D;
+    z-index: 9;
+    font-size: 5em;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.exercice {
+    font-size: 3em;
+    background-color: white;
+    color: #0980B3;
+    height: 70px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.set {
+    color: #FF002B;
+    height: 70px;
+    width: 60px;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
+}
+
+.sets {
+    float: right;
+}
+
+.exercice-name {
+    margin-left: 10px;
+    float: left;
+}
+
+.reps {
+    float: right;
+}
+
+/* 14CC3F */
+
+.centered {
+    left: 0px;
+}
+
+.lefted {
+    left: -100%;
+}
+
+.greened {
+    color: #17E848;
+    
+}
+
+.lefted, .centered, .group, .groups-container, .workout-container, body, .yellowed {
+    transition: 0.3s;
+    animation: ease-out;
+}
+
+        </style>
+        <script>
+        
+function open_a_group(group) {
+    var groups = document.getElementsByClassName("group");
+    for (var i=0; i<groups.length; i++) {
+        groups[i].classList.remove("lefted");
+    }
+    var myobj = document.getElementsByClassName("group")[group];
+    myobj.classList.add("lefted");
+}
+
+function open_a_workout(group, length) {
+    var group_container = document.getElementById("groups-container")
+    var workout_container = document.getElementById("workout-container")
+    group_container.classList.add("lefted")
+    workout_container.classList.add("centered")
+    document.body.classList.add("yellowed")
+}
+
+function complete_a_set(set) {
+    var setobject = document.getElementsByClassName("set")[set]
+    setobject.classList.add("greened")
+}
+
+        </script>
+
+    </head>
+    
+    <body>
+        <div class="groups-container" id="groups-container">
+            <div class="workout">
+                <div class="left" onclick="open_a_workout(0,0)">Short
+                </div><div class="right" onclick="open_a_workout(0,1)">Long</div>
+                <div class="group" onclick="open_a_group(0);">Legs</div>
+            </div>
+            <div class="workout">
+                <div class="left" onclick="open_a_workout(1,0)">Short
+                </div><div class="right" onclick="open_a_workout(1,1)">Long</div>
+                <div class="group" onclick="open_a_group(1);">Core</div>
+            </div>
+            <div class="workout">
+                <div class="left" onclick="open_a_workout(2,0)">Short
+                </div><div class="right" onclick="open_a_workout(2,1)">Long</div>
+                <div class="group" onclick="open_a_group(2);">Arms</div>
+            </div>
+            <div class="workout">
+                <div class="left" onclick="open_a_workout(3,0)">Short
+                </div><div class="right" onclick="open_a_workout(3,1)">Long</div>
+                <div class="group" onclick="open_a_group(3);">Back</div>
+            </div>
+            <div class="workout">
+                <div class="left" onclick="open_a_workout(4,0)">Short
+                </div><div class="right" onclick="open_a_workout(4,1)">Long</div>
+                <div class="group" onclick="open_a_group(4);">Cardio</div>
+            </div>
+        </div>
+        <div class="workout-container" id="workout-container">
+            <div class="workout-title">
+                Legs
+            </div>
+            <div class="exercice">
+                <div class="exercice-name">Squat</div>
+                <div class="sets">
+                    <div class="set" onclick="complete_a_set(0)">
+                        1</div><div class="set" onclick="complete_a_set(1)">
+                        2</div><div class="set" onclick="complete_a_set(2)">
+                        3</div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
