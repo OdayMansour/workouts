@@ -147,6 +147,163 @@ body {
         </style>
         <script>
 
+var config = 
+{"workouts": [
+    {
+        "name": "Legs",
+        "flavors": [
+            {
+                "name": "Short",
+                "exercices": [
+                    {
+                        "name": "Squats",
+                        "sets": [
+                            {"quantity": "8x"},
+                            {"quantity": "8x"},
+                            {"quantity": "5x"},
+                            {"quantity": "5x"},
+                            {"quantity": "5x"}
+                        ]
+                    },
+                    {
+                        "name": "Leg extensions",
+                        "sets": [
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "7x"},
+                            {"quantity": "4x"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Long",
+                "exercices": [
+                    {
+                        "name": "Squats",
+                        "sets": [
+                            {"quantity": "8x"},
+                            {"quantity": "8x"},
+                            {"quantity": "5x"},
+                            {"quantity": "5x"},
+                            {"quantity": "5x"}
+                        ]
+                    },
+                    {
+                        "name": "Leg extensions",
+                        "sets": [
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "7x"},
+                            {"quantity": "4x"}
+                        ]
+                    },
+                    {
+                        "name": "Inner leg abduction",
+                        "sets": [
+                            {"quantity": "12x"},
+                            {"quantity": "12x"},
+                            {"quantity": "12x"}
+                        ]
+                    }
+                ]
+            }
+        ] // end of flavors
+    }
+] // end of workouts
+}
+
+///////////////////////////////////////////
+// Setup  /////////////////////////////////
+///////////////////////////////////////////
+
+function create_list(config) {
+    console.log("Creating list")
+
+    create_list_html(config)
+
+    var i_workout = 0
+    config.workouts.forEach(workout => {
+        create_workout(workout, i_workout)
+        i_workout++
+    });
+}
+
+function create_list_html(config) {
+    console.log("Creating list html")
+    // html stuff
+}
+
+function create_workout(workout, i_workout) {
+    var id = i_workout.toString()
+    console.log("Creating workout " + id)
+
+    create_workout_html(workout, i_workout)
+
+    var i_flavor = 0
+    workout.flavors.forEach(flavor => {
+        create_workout_flavors(flavor, i_workout, i_flavor)
+        i_flavor++
+    });
+}
+
+function create_workout_html(workout, i_workout) {
+    var id = i_workout.toString()
+    console.log("Creating html for workout " + id)
+}
+
+function create_workout_flavors(flavor, i_workout, i_flavor) {
+    var id = i_workout.toString() + "," +  i_flavor.toString()
+    console.log("Creating workout flavor " + id)
+
+    create_flavor_html(flavor, i_workout, i_flavor)
+    create_flavor_page(flavor, i_workout, i_flavor)
+
+    var i_exercice = 0
+    flavor.exercices.forEach(exercice => {
+        create_flavor_exercices(exercice, i_workout, i_flavor, i_exercice)
+        i_exercice++
+    });
+}
+
+function create_flavor_html(flavor, i_workout, i_flavor) {
+    var id = i_workout.toString() + "," +  i_flavor.toString()
+    console.log("Creating html for flavor " + id)
+}
+
+function create_flavor_page(flavor, i_workout, i_flavor) {
+    var id = i_workout.toString() + "," +  i_flavor.toString()
+    console.log("Creating page for flavor " + id)
+
+}
+
+function create_flavor_exercices(exercice, i_workout, i_flavor, i_exercice) {
+    var id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString()
+    console.log("Creating flavor exercices " + id)
+    
+    create_exercice_html(exercice, i_workout, i_flavor, i_exercice)
+
+    var i_set = 0
+    exercice.sets.forEach(set => {
+        create_exercice_sets(exercice, i_workout, i_flavor, i_exercice, i_set)
+        i_set++
+    });
+}
+
+function create_exercice_html(exercice, i_workout, i_flavor, i_exercice) {
+    var id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString()
+    console.log("Creating html for exercice " + id)
+}
+
+function create_exercice_sets(exercice, i_workout, i_flavor, i_exercice, i_set) {
+    var id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString() + "," + i_set.toString()
+    console.log("Creating exercice set " + id)
+}
+
+///////////////////////////////////////////
+// Interaction ////////////////////////////
+///////////////////////////////////////////
+
 function open_a_group(group) {
     var groups = document.getElementsByClassName("group");
     for (var i=0; i<groups.length; i++) {
@@ -188,7 +345,8 @@ function show_an_image(id) {
 
     </head>
     
-    <body class="" onload="opsen_a_workout('0,0')">
+    <!-- <body class="" onload="opsen_a_workout('0,0')"> -->
+    <body class="">
         <div class="groups-container" id="groups-container">
             <div class="workout">
                 <div class="lengths">
@@ -274,6 +432,56 @@ function show_an_image(id) {
                 </div>
             </div>
         </div>
+
+        <div class="workout-container" id="0,1">
+            <div class="workout-title" id="title-0,1">
+                Legs
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,1,0" onclick="show_an_image('0,1,0')">
+                    Squats zzz
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,1,0,0" onclick="complete_a_set('0,1,0,0')">8x</div>
+                    <div class="set" id="0,1,0,1" onclick="complete_a_set('0,1,0,1')">8x</div>
+                    <div class="set" id="0,1,0,2" onclick="complete_a_set('0,1,0,2')">52x</div>
+                    <div class="set" id="0,1,0,3" onclick="complete_a_set('0,1,0,3')">5x</div>
+                    <div class="set" id="0,1,0,4" onclick="complete_a_set('0,1,0,4')">5x</div>
+                </div>
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,1,1" onclick="show_an_image('0,1,1')">
+                    Leg extensions s
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,1,1,0" onclick="complete_a_set('0,1,1,0')">10x</div>
+                    <div class="set" id="0,1,1,1" onclick="complete_a_set('0,1,1,1')">10x</div>
+                    <div class="set" id="0,1,1,2" onclick="complete_a_set('0,1,1,2')">7x</div>
+                    <div class="set" id="0,1,1,3" onclick="complete_a_set('0,1,1,3')">4x</div>
+                </div>
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,1,2" onclick="show_an_image('0,1,2')">
+                    Inner leg abduction z
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,1,2,0" onclick="complete_a_set('0,1,2,0')">12x</div>
+                    <div class="set" id="0,1,2,1" onclick="complete_a_set('0,1,2,1')">12x</div>
+                    <div class="set" id="0,1,2,2" onclick="complete_a_set('0,1,2,2')">12x</div>
+                </div>
+            </div>
+            <div class="exercice">
+                <div class="exercice-name" id="0,1,3" onclick="show_an_image('0,1,3')">
+                    Outer leg abductors 3
+                </div>
+                <div class="sets">
+                    <div class="set" id="0,1,3,0" onclick="complete_a_set('0,1,3,0')">12x</div>
+                    <div class="set" id="0,1,3,1" onclick="complete_a_set('0,1,3,1')">12x</div>
+                    <div class="set" id="0,1,3,2" onclick="complete_a_set('0,1,3,2')">12x</div>
+                </div>
+            </div>
+        </div>
+        
     </body>
 
 </html>
