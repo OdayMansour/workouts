@@ -7,23 +7,23 @@ body {
     background-color: #B3122D;
 }
 
-.long {
+.flavor_1 {
     background-color: #0980B3;
     color: white;
 }
 
-.short {
+.flavor_0 {
     background-color: #1495CC;
     color: white;
 }
 
-.group {
+.workout_button {
     background-color: #FF002B;
     color: white;
     border-bottom: 1px solid #B3122D;
 }
 
-.yellowed {
+.lightened {
     background-color: #F2E6D8;
     color: #591515;
 }
@@ -64,14 +64,14 @@ body {
     margin-bottom: 41px;
 }
 
-.short, .long {
+.flavor_0, .flavor_1 {
     text-align: center;
     vertical-align: middle;
     display: table-cell;
     height: 125px;
 }
 
-.group {
+.workout_button {
     width: 100%;
     height: 125px;
     z-index: 9;
@@ -83,13 +83,13 @@ body {
     text-align: center;
 }
 
-.groups-container {
+.workout-list-page {
     height: 630px;
     position: relative;
     left: 0%;
 }
 
-.workout-container {
+.workout-page {
     position: absolute;
     width: 100%;
     top: 0px;
@@ -129,7 +129,7 @@ body {
     height: 200px;
 }
 
-.sets, .lengths {
+.sets, .flavors {
     display: table;
     width: 100%;
     table-layout: fixed;
@@ -139,7 +139,7 @@ body {
 .centered {left: 0px;}
 .lefted {left: -100%;}
 
-.lefted, .centered, .group, .groups-container, .workout-container, body, .yellowed, .exercice-name, .expanded {
+.lefted, .centered, .workout_button, .workout-list-page, .workout-page, body, .lightened, .exercice-name, .expanded {
     transition: 0.3s;
     animation: ease-out;
 }
@@ -154,27 +154,7 @@ var config =
         "flavors": [
             {
                 "name": "Short",
-                "exercices": [
-                    {
-                        "name": "Squats",
-                        "sets": [
-                            {"quantity": "8x"},
-                            {"quantity": "8x"},
-                            {"quantity": "5x"},
-                            {"quantity": "5x"},
-                            {"quantity": "5x"}
-                        ]
-                    },
-                    {
-                        "name": "Leg extensions",
-                        "sets": [
-                            {"quantity": "10x"},
-                            {"quantity": "10x"},
-                            {"quantity": "7x"},
-                            {"quantity": "4x"}
-                        ]
-                    }
-                ]
+                "exercices": []
             },
             {
                 "name": "Long",
@@ -205,7 +185,204 @@ var config =
                             {"quantity": "12x"},
                             {"quantity": "12x"}
                         ]
+                    },
+                    {
+                        "name": "Outer leg abduction",
+                        "sets": [
+                            {"quantity": "12x"},
+                            {"quantity": "12x"},
+                            {"quantity": "12x"}
+                        ]
                     }
+                ]
+            }
+        ] // end of flavors
+    },
+    {
+        "name": "Core",
+        "flavors": [
+            {
+                "name": "Short",
+                "exercices": []
+            },
+            {
+                "name": "Long",
+                "exercices": [
+                    {
+                        "name": "Deadlifts",
+                        "sets": [
+                            {"quantity": "7x"},
+                            {"quantity": "7x"},
+                            {"quantity": "5x"},
+                            {"quantity": "5x"},
+                            {"quantity": "5x"}
+                        ]
+                    },
+                    {
+                        "name": "Battle ropes",
+                        "sets": [
+                            {"quantity": "1m"},
+                            {"quantity": "1m"},
+                            {"quantity": "1m"}
+                        ]
+                    },
+                    {
+                        "name": "Woodchopper",
+                        "sets": [
+                            {"quantity": "10x (2x)"},
+                            {"quantity": "10x (2x)"},
+                            {"quantity": "10x (2x)"}
+                        ]
+                    },
+                    {
+                        "name": "Side planks",
+                        "sets": [
+                            {"quantity": "30s"},
+                            {"quantity": "40s"},
+                            {"quantity": "40s"}
+                        ]
+                    }
+                ]
+            }
+        ] // end of flavors
+    },
+    {
+        "name": "Arms",
+        "flavors": [
+            {
+                "name": "Short",
+                "exercices": []
+            },
+            {
+                "name": "Long",
+                "exercices": [
+                    {
+                        "name": "Shoulder press",
+                        "sets": [
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "8x"},
+                            {"quantity": "4x"}
+                        ]
+                    },
+                    {
+                        "name": "Shrugs",
+                        "sets": [
+                            {"quantity": "12x"},
+                            {"quantity": "12x"},
+                            {"quantity": "12x"},
+                            {"quantity": "12x"}
+                        ]
+                    },
+                    {
+                        "name": "Calf raises",
+                        "sets": [
+                            {"quantity": "12x"},
+                            {"quantity": "12x"},
+                            {"quantity": "12x"},
+                            {"quantity": "12x"}
+                        ]
+                    },
+                    {
+                        "name": "Chest fly",
+                        "sets": [
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "10x"}
+                        ]
+                    }
+                ]
+            }
+        ] // end of flavors
+    },
+    {
+        "name": "Back",
+        "flavors": [
+            {
+                "name": "Short",
+                "exercices": []
+            },
+            {
+                "name": "Long",
+                "exercices": [
+                    {
+                        "name": "Pull-ups",
+                        "sets": [
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "10x"}
+                        ]
+                    },
+                    {
+                        "name": "Rows",
+                        "sets": [
+                            {"quantity": "12x (2x)"},
+                            {"quantity": "12x (2x)"},
+                            {"quantity": "12x (2x)"}
+                        ]
+                    },
+                    {
+                        "name": "Rear deltoids",
+                        "sets": [
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "10x"},
+                            {"quantity": "10x"}
+                        ]
+                    },
+                    {
+                        "name": "Lower back",
+                        "sets": [
+                            {"quantity": "7x"},
+                            {"quantity": "7x"},
+                            {"quantity": "7x"},
+                            {"quantity": "7x"},
+                            {"quantity": "7x"}
+                        ]
+                    }
+                ]
+            }
+        ] // end of flavors
+    },
+    {
+        "name": "Cardio",
+        "flavors": [
+            {
+                "name": "Short",
+                "exercices": []
+            },
+            {
+                "name": "Long",
+                "exercices": [
+                    {
+                        "name": "Bike",
+                        "sets": [
+                            {"quantity": "10m hill climb"},
+                        ]
+                    },
+                    {
+                        "name": "Bike",
+                        "sets": [
+                            {"quantity": "10m HIIT"},
+                        ]
+                    },
+                    {
+                        "name": "Treadmill",
+                        "sets": [
+                            {"quantity": "10m HIIT"},
+                        ]
+                    },
+                    {
+                        "name": "Burpees",
+                        "sets": [
+                            {"quantity": "8x"},
+                            {"quantity": "8x"},
+                            {"quantity": "8x"},
+                            {"quantity": "8x"}
+                        ]
+                    },
                 ]
             }
         ] // end of flavors
@@ -305,19 +482,19 @@ function create_exercice_sets(exercice, i_workout, i_flavor, i_exercice, i_set) 
 ///////////////////////////////////////////
 
 function open_a_group(group) {
-    var groups = document.getElementsByClassName("group");
+    var groups = document.getElementsByClassName("workout_button");
     for (var i=0; i<groups.length; i++) {
         groups[i].classList.remove("lefted");
     }
-    var myobj = document.getElementsByClassName("group")[group];
+    var myobj = document.getElementsByClassName("workout_button")[group];
     myobj.classList.add("lefted");
 }
 
 function open_a_workout(id, sets) {
-    var group_container = document.getElementById("groups-container")
+    var group_container = document.getElementById("workout-list-page")
     var workout_container = document.getElementById(id)
     group_container.classList.add("lefted")
-    document.body.classList.add("yellowed")
+    document.body.classList.add("lightened")
     workout_container.classList.add("centered")
     total = sets
 }
@@ -342,64 +519,56 @@ function show_an_image(id) {
 }
 
         </script>
-
     </head>
-    
-    <!-- <body class="" onload="opsen_a_workout('0,0')"> -->
     <body class="">
-        <div class="groups-container" id="groups-container">
+
+<template id="t_workout">
+    <div class="workout">
+        <div class="workout_button" id="button-X" onclick="open_a_group('X')">__workout_name__</div>
+    </div>
+</template>
+
+<template id="t_flavors">
+    <div class="flavors">
+    </div>
+</template>
+
+<template id="t_flavor">
+    <div class="flavor_X" id="button-X,X" onclick="open_a_workout('X,X')">__flavor_name__</div>
+</template>
+
+<!-- This is the main page with all the workouts -->
+        <div class="workout-list-page" id="workout-list-page">
             <div class="workout">
-                <div class="lengths">
-                    <div class="short" id="button-0,0" onclick="open_a_workout('0,0')">Short</div>
-                    <div class="long" id="button-0,1" onclick="open_a_workout('0,1')">Long</div>
+                <div class="flavors">
+                    <div class="flavor_0" id="button-0,0" onclick="open_a_workout('0,0')">Short</div>
+                    <div class="flavor_1" id="button-0,1" onclick="open_a_workout('0,1')">Long</div>
                 </div>
-                <div class="group" id="button-0" onclick="open_a_group(0)">Legs</div>
-            </div>
-            <div class="workout">
-                <div class="lengths">
-                    <div class="short" id="button-1,0" onclick="open_a_workout('1,0')">Short</div>
-                    <div class="long" id="button-1,1" onclick="open_a_workout('1,1')">Long</div>
-                </div>
-                <div class="group" id="button-1" onclick="open_a_group(1)">Core</div>
-            </div>
-            <div class="workout">
-                <div class="lengths">
-                    <div class="short" id="button-2,0" onclick="open_a_workout('2,0')">Short</div>
-                    <div class="long" id="button-2,1" onclick="open_a_workout('2,1')">Long</div>
-                </div>
-                <div class="group" id="button-2" onclick="open_a_group(2)">Arms</div>
-            </div>
-            <div class="workout">
-                <div class="lengths">
-                    <div class="short" id="button-3,0" onclick="open_a_workout('3,0')">Short</div>
-                    <div class="long" id="button-3,1" onclick="open_a_workout('3,1')">Long</div>
-                </div>
-                <div class="group" id="button-3" onclick="open_a_group(3)">Back</div>
-            </div>
-            <div class="workout">
-                <div class="lengths">
-                    <div class="short" id="button-4,0" onclick="open_a_workout('4,0')">Short</div>
-                    <div class="long" id="button-4,1" onclick="open_a_workout('4,1')">Long</div>
-                </div>
-                <div class="group" id="button-4" onclick="open_a_group(4)">Cardio</div>
+                <div class="workout_button" id="button-0" onclick="open_a_group(0)">Legs</div>
             </div>
         </div>
-        <div class="workout-container" id="0,0">
-            <div class="workout-title" id="title-0,0">
-                Legs
-            </div>
-            <div class="exercice">
-                <div class="exercice-name" id="0,0,0" onclick="show_an_image('0,0,0')">
-                    Squats
-                </div>
-                <div class="sets">
-                    <div class="set" id="0,0,0,0" onclick="complete_a_set('0,0,0,0')">8x</div>
-                    <div class="set" id="0,0,0,1" onclick="complete_a_set('0,0,0,1')">8x</div>
-                    <div class="set" id="0,0,0,2" onclick="complete_a_set('0,0,0,2')">5x</div>
-                    <div class="set" id="0,0,0,3" onclick="complete_a_set('0,0,0,3')">5x</div>
-                    <div class="set" id="0,0,0,4" onclick="complete_a_set('0,0,0,4')">5x</div>
-                </div>
-            </div>
+
+<template id="t_title">
+    <div class="workout-title" id="title-X,X">__workout_name__</div>
+</template>
+
+<template id="t_exercice">
+    <div class="exercice">
+        <div class="sets">
+        </div>
+    </div>
+</template>
+
+<template id="t_exercice_name">
+    <div class="exercice-name" id="X,X,X" onclick="show_an_image('X,X,X')">__exercice_name__</div>
+</template>
+
+<template id="t_set">
+    <div class="set" id="X,X,X,X" onclick="complete_a_set('X,X,X,X')">__set_amount__</div>
+</template>
+
+        <div class="workout-page" id="0,0">
+            <div class="workout-title" id="title-0,0">Legs</div>
             <div class="exercice">
                 <div class="exercice-name" id="0,0,1" onclick="show_an_image('0,0,1')">
                     Leg extensions
@@ -421,19 +590,9 @@ function show_an_image(id) {
                     <div class="set" id="0,0,2,2" onclick="complete_a_set('0,0,2,2')">12x</div>
                 </div>
             </div>
-            <div class="exercice">
-                <div class="exercice-name" id="0,0,3" onclick="show_an_image('0,0,3')">
-                    Outer leg abductors
-                </div>
-                <div class="sets">
-                    <div class="set" id="0,0,3,0" onclick="complete_a_set('0,0,3,0')">12x</div>
-                    <div class="set" id="0,0,3,1" onclick="complete_a_set('0,0,3,1')">12x</div>
-                    <div class="set" id="0,0,3,2" onclick="complete_a_set('0,0,3,2')">12x</div>
-                </div>
-            </div>
         </div>
 
-        <div class="workout-container" id="0,1">
+        <div class="workout-page" id="0,1">
             <div class="workout-title" id="title-0,1">
                 Legs
             </div>
