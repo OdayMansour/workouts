@@ -481,7 +481,10 @@ function create_exercice_sets(exercice, i_workout, i_flavor, i_exercice, i_set) 
 // Interaction ////////////////////////////
 ///////////////////////////////////////////
 
-function open_a_group(group) {
+function open_a_group(item) {
+
+    var group = item.id
+
     var groups = document.getElementsByClassName("workout_button");
     for (var i=0; i<groups.length; i++) {
         groups[i].classList.remove("lefted");
@@ -490,13 +493,15 @@ function open_a_group(group) {
     myobj.classList.add("lefted");
 }
 
-function open_a_workout(id, sets) {
+function open_a_workout(item) {
+    
+    var id = item.name
+
     var group_container = document.getElementById("workout-list-page")
     var workout_container = document.getElementById(id)
     group_container.classList.add("lefted")
     document.body.classList.add("lightened")
     workout_container.classList.add("centered")
-    total = sets
 }
 
 function complete_a_set(id) {
@@ -518,30 +523,66 @@ function show_an_image(id) {
 
 }
 
+function add_a_workout(id, workout) {
+
+    // Find templates we need
+    var t_workout = document.querySelector('#t_workout')
+    var t_flavor = document.querySelector('#t_flavor')
+
+    // Create workout item and fill in name and ID
+    var t_workout_applied = t_workout.content.cloneNode(true)
+    var flavors = t_workout_applied.children[0].children.namedItem('flavors')
+    var button = t_workout_applied.children[0].children.namedItem('X')
+    button.innerText = workout["name"]
+    button.id = id
+
+    // Create flavor items
+    var t_flavor_applied_1 = t_flavor.content.cloneNode(true)
+    t_flavor_applied_1.children[0].className = "flavor_0"
+    t_flavor_applied_1.children[0].name = id + ",0"
+
+    var t_flavor_applied_2 = t_flavor.content.cloneNode(true)
+    t_flavor_applied_2.children[0].className = "flavor_1"
+    t_flavor_applied_2.children[0].name = id + ",1"
+
+    // Add flavors to the workout
+    flavors.appendChild(t_flavor_applied_1)
+    flavors.appendChild(t_flavor_applied_2)
+
+    // Add workout to the list
+    var workoutlist = document.querySelector('#workout-list-page')
+    workoutlist.appendChild(t_workout_applied)
+
+}
+
+function whoami(item) {
+    alert(item.id)
+}
+
         </script>
     </head>
     <body class="">
 
 <template id="t_workout">
     <div class="workout">
-        <div class="flavors"></div>
-        <div class="workout_button" id="button-X" onclick="open_a_group('X')">__workout_name__</div>
+        <div id="flavors" class="flavors"></div>
+        <div class="workout_button" id="X" onclick="open_a_group(this)">__workout_name__</div>
     </div>
 </template>
 
 <template id="t_flavor">
-    <div class="flavor_X" id="button-X,X" onclick="open_a_workout('X,X')">__flavor_name__</div>
+    <div class="flavor_X" id="X,X" onclick="open_a_workout(this)">__flavor_name__</div>
 </template>
 
 <!-- This is the main page with all the workouts -->
         <div class="workout-list-page" id="workout-list-page">
-            <div class="workout">
+            <!-- div class="workout">
                 <div class="flavors">
-                    <div class="flavor_0" id="button-0,0" onclick="open_a_workout('0,0')">Short</div>
-                    <div class="flavor_1" id="button-0,1" onclick="open_a_workout('0,1')">Long</div>
+                    <div class="flavor_0" name="0,0" onclick="open_a_workout('0,0')">Short</div>
+                    <div class="flavor_1" name="0,1" onclick="open_a_workout('0,1')">Long</div>
                 </div>
-                <div class="workout_button" id="button-0" onclick="open_a_group(0)">Legs</div>
-            </div>
+                <div class="workout_button" id="0" onclick="open_a_group(this)">Legs</div>
+            </div -->
         </div>
 
 <template id="t_workout-page">
