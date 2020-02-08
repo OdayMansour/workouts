@@ -555,43 +555,43 @@ function whoami(item) {
     </head>
     <body class="">
 
-<template id="t_workout">
-    <div class="workout">
-        <div id="flavors" class="flavors"></div>
-        <div class="workout_button" id="X" onclick="open_a_group(this)">__workout_name__</div>
-    </div>
-</template>
+<!-- ------------------------------------ -->
+<!-- - TEMPLATES START ------------------ -->
+<!-- ------------------------------------ -->
 
-<template id="t_flavor">
-    <div class="flavor_X" id="X,X" onclick="open_a_workout(this)">__flavor_name__</div>
-</template>
+        <template id="t_workout">
+            <div class="workout">
+                <div id="flavors" class="flavors"></div>
+                <div class="workout_button" id="X" onclick="open_a_group(this)">__workout_name__</div>
+            </div>
+        </template>
 
-<!-- This is the main page with all the workouts -->
-        <div class="workout-list-page" id="workout-list-page">
-            <!-- div class="workout">
-                <div class="flavors">
-                    <div class="flavor_0" name="0,0" onclick="open_a_workout('0,0')">Short</div>
-                    <div class="flavor_1" name="0,1" onclick="open_a_workout('0,1')">Long</div>
+        <template id="t_flavor">
+            <div class="flavor_X" id="X,X" onclick="open_a_workout(this)">__flavor_name__</div>
+        </template>
+
+        <template id="t_workout-page">
+            <div class="workout-title" id="title-X,X">__workout_name__</div>
+        </template>
+
+        <template id="t_exercice">
+            <div class="exercice">
+                <div class="exercice-name" id="X,X,X" onclick="show_an_image('X,X,X')">__exercice_name__</div>
+                <div class="sets">
                 </div>
-                <div class="workout_button" id="0" onclick="open_a_group(this)">Legs</div>
-            </div -->
-        </div>
+            </div>
+        </template>
 
-<template id="t_workout-page">
-    <div class="workout-title" id="title-X,X">__workout_name__</div>
-</template>
+        <template id="t_set">
+            <div class="set" id="X,X,X,X" onclick="complete_a_set('X,X,X,X')">__set_amount__</div>
+        </template>
 
-<template id="t_exercice">
-    <div class="exercice">
-        <div class="exercice-name" id="X,X,X" onclick="show_an_image('X,X,X')">__exercice_name__</div>
-        <div class="sets">
-        </div>
-    </div>
-</template>
+<!-- ------------------------------------ -->
+<!-- - TEMPLATES END -------------------- -->
+<!-- ------------------------------------ -->
 
-<template id="t_set">
-    <div class="set" id="X,X,X,X" onclick="complete_a_set('X,X,X,X')">__set_amount__</div>
-</template>
+        <!-- This is the main page with all the workouts -->
+        <div class="workout-list-page" id="workout-list-page"></div>
 
         <div class="workout-page" id="0,0">
             <div class="workout-title" id="title-0,0">Legs</div>
