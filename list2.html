@@ -425,15 +425,44 @@ function create_workout(workout, i_workout) {
 }
 
 function create_workout_html(workout, i_workout) {
-    var id = i_workout.toString()
-    console.log("Creating html for workout " + id)
+
+    // Find templates we need
+    var t_workout = document.querySelector('#t_workout')
+    var t_flavor = document.querySelector('#t_flavor')
+
+    // Create workout item and fill in name and ID
+    var t_workout_applied = t_workout.content.cloneNode(true)
+    var flavors = t_workout_applied.children[0].children.namedItem('flavors')
+    var button = t_workout_applied.children[0].children.namedItem('X')
+    button.innerText = workout["name"]
+    button.id = i_workout
+
+    // Create flavor items
+    var t_flavor_applied_1 = t_flavor.content.cloneNode(true)
+    t_flavor_applied_1.children[0].className = "flavor_0"
+    t_flavor_applied_1.children[0].name = i_workout + ",0"
+    t_flavor_applied_1.children[0].innerText = workout["flavors"][0]["name"]
+
+    var t_flavor_applied_2 = t_flavor.content.cloneNode(true)
+    t_flavor_applied_2.children[0].className = "flavor_1"
+    t_flavor_applied_2.children[0].name = i_workout + ",1"
+    t_flavor_applied_2.children[0].innerText = workout["flavors"][1]["name"]
+
+    // Add flavors to the workout
+    flavors.appendChild(t_flavor_applied_1)
+    flavors.appendChild(t_flavor_applied_2)
+
+    // Add workout to the list
+    var workoutlist = document.querySelector('#workout-list-page')
+    workoutlist.appendChild(t_workout_applied)
+
+    console.log("Creating html for workout " + i_workout)
 }
 
 function create_workout_flavors(flavor, i_workout, i_flavor) {
     var id = i_workout.toString() + "," +  i_flavor.toString()
     console.log("Creating workout flavor " + id)
 
-    create_flavor_html(flavor, i_workout, i_flavor)
     create_flavor_page(flavor, i_workout, i_flavor)
 
     var i_exercice = 0
@@ -441,11 +470,6 @@ function create_workout_flavors(flavor, i_workout, i_flavor) {
         create_flavor_exercices(exercice, i_workout, i_flavor, i_exercice)
         i_exercice++
     });
-}
-
-function create_flavor_html(flavor, i_workout, i_flavor) {
-    var id = i_workout.toString() + "," +  i_flavor.toString()
-    console.log("Creating html for flavor " + id)
 }
 
 function create_flavor_page(flavor, i_workout, i_flavor) {
@@ -520,38 +544,6 @@ function show_an_image(id) {
     } else {
         exo.classList.add("expanded")
     }
-
-}
-
-function add_a_workout(id, workout) {
-
-    // Find templates we need
-    var t_workout = document.querySelector('#t_workout')
-    var t_flavor = document.querySelector('#t_flavor')
-
-    // Create workout item and fill in name and ID
-    var t_workout_applied = t_workout.content.cloneNode(true)
-    var flavors = t_workout_applied.children[0].children.namedItem('flavors')
-    var button = t_workout_applied.children[0].children.namedItem('X')
-    button.innerText = workout["name"]
-    button.id = id
-
-    // Create flavor items
-    var t_flavor_applied_1 = t_flavor.content.cloneNode(true)
-    t_flavor_applied_1.children[0].className = "flavor_0"
-    t_flavor_applied_1.children[0].name = id + ",0"
-
-    var t_flavor_applied_2 = t_flavor.content.cloneNode(true)
-    t_flavor_applied_2.children[0].className = "flavor_1"
-    t_flavor_applied_2.children[0].name = id + ",1"
-
-    // Add flavors to the workout
-    flavors.appendChild(t_flavor_applied_1)
-    flavors.appendChild(t_flavor_applied_2)
-
-    // Add workout to the list
-    var workoutlist = document.querySelector('#workout-list-page')
-    workoutlist.appendChild(t_workout_applied)
 
 }
 
