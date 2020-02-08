@@ -524,12 +524,8 @@ function show_an_image(id) {
 
 <template id="t_workout">
     <div class="workout">
+        <div class="flavors"></div>
         <div class="workout_button" id="button-X" onclick="open_a_group('X')">__workout_name__</div>
-    </div>
-</template>
-
-<template id="t_flavors">
-    <div class="flavors">
     </div>
 </template>
 
@@ -548,19 +544,16 @@ function show_an_image(id) {
             </div>
         </div>
 
-<template id="t_title">
+<template id="t_workout-page">
     <div class="workout-title" id="title-X,X">__workout_name__</div>
 </template>
 
 <template id="t_exercice">
     <div class="exercice">
+        <div class="exercice-name" id="X,X,X" onclick="show_an_image('X,X,X')">__exercice_name__</div>
         <div class="sets">
         </div>
     </div>
-</template>
-
-<template id="t_exercice_name">
-    <div class="exercice-name" id="X,X,X" onclick="show_an_image('X,X,X')">__exercice_name__</div>
 </template>
 
 <template id="t_set">
