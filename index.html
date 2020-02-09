@@ -1,11 +1,52 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <link rel="stylesheet" type="text/css" href="main.css" />
-    </head>
-    
-    <body class="splash_page">
-        <div class="title"><a href="list.html"">START</a></div>
-    </body>
 
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+        <script type="text/javascript" src="js/workout_config.js" /></script>
+        <script type="text/javascript" src="js/setup.js" /></script>
+        <script type="text/javascript" src="js/interaction.js" /></script>
+        
+        <script>
+            function debug(message) {
+                if (false) {
+                    console.log("DEBUG: " + message)
+                }
+            }
+        </script>
+    </head>
+
+    <body class="" onload="create_list(config); ">
+        <template id="t_workout">
+            <div class="workout">
+                <div id="flavors" class="flavors"></div>
+                <div class="workout_button" id="X" onclick="open_a_group(this)">__workout_name__</div>
+            </div>
+        </template>
+
+        <template id="t_flavor">
+            <div class="flavor_X" id="X,X" onclick="open_a_workout(this)">__flavor_name__</div>
+        </template>
+
+        <template id="t_workout-page">
+            <div class="workout-page" id="X,X">
+                <div class="workout-title" name="workout-title">__workout_name__</div>
+            </div>    
+        </template>
+
+        <template id="t_exercice">
+            <div class="exercice" id="X,X,X">
+                <div name="exercice-name" class="exercice-name" onclick="show_an_image(this)">__exercice_name__</div>
+                <div name="sets" class="sets">
+                </div>
+            </div>
+        </template>
+
+        <template id="t_set">
+            <div class="set" id="X,X,X,X" onclick="complete_a_set(this)">__set_amount__</div>
+        </template>
+
+        <div class="workout-list-page" id="workout-list-page"></div>
+    </body>
 </html>
