@@ -102,10 +102,11 @@ body {
 .workout-title {
     height: 63px;
     z-index: 9;
-    font-size: 5em;
+    font-size: 3em;
     text-align: center;
     width: 100%;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .exercice {
@@ -158,17 +159,26 @@ var config =
         "name": "Legs",
         "flavors": [
             { "name": "Short",
-                "exercices": []
+                "exercices": [
+                    { "name": "Squats", 
+                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "5x"},{"q": "5x"}] },
+                    { "name": "Leg extensions", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "7x"},{"q": "4x"}] },
+                    { "name": "Inner leg abduction", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}] }
+                ]
             },
             { "name": "Long",
                 "exercices": [
-                    { "name": "Squats",
-                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "5x"},{"q": "5x"},{"q": "5x"}] },
-                    { "name": "Leg extensions",
-                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "7x"},{"q": "4x"}] },
-                    { "name": "Inner leg abduction",
+                    { "name": "Squats", 
+                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "5x"},{"q": "5x"}] },
+                    { "name": "Lunges", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
+                    { "name": "Inner leg abduction", 
                       "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
-                    { "name": "Outer leg abduction",
+                    { "name": "Hip thrusts", 
+                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "8x"},{"q": "8x"}] },
+                    { "name": "Outer leg abduction", 
                       "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}] }
                 ]
             }
@@ -178,37 +188,55 @@ var config =
         "name": "Core",
         "flavors": [
             { "name": "Short",
-                "exercices": []
+                "exercices": [
+                    { "name": "Deadlifts", 
+                      "sets": [{"q": "7x"},{"q": "7x"},{"q": "5x"},{"q": "5x"}] },
+                    { "name": "Battle ropes", 
+                      "sets": [{"q": "1m"},{"q": "1m"},{"q": "1m"}] },
+                    { "name": "Woodchopper", 
+                      "sets": [{"q": "10x (2x)"},{"q": "10x (2x)"},{"q": "10x (2x)"}] },
+                ]
             },
             { "name": "Long",
                 "exercices": [
-                    { "name": "Deadlifts",
-                      "sets": [{"q": "7x"},{"q": "7x"},{"q": "5x"},{"q": "5x"},{"q": "5x"}] },
-                    { "name": "Battle ropes",
+                    { "name": "Deadlifts", 
+                      "sets": [{"q": "7x"},{"q": "7x"},{"q": "5x"},{"q": "5x"}] },
+                    { "name": "Hanging leg raises", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}]},
+                    { "name": "Battle ropes", 
                       "sets": [{"q": "1m"},{"q": "1m"},{"q": "1m"}] },
-                    { "name": "Woodchopper",
+                    { "name": "Woodchopper", 
                       "sets": [{"q": "10x (2x)"},{"q": "10x (2x)"},{"q": "10x (2x)"}] },
-                    { "name": "Side planks",
+                    { "name": "Side planks", 
                       "sets": [{"q": "30s"},{"q": "40s"},{"q": "40s"}] }
                 ]
             }
         ] 
     },
     {
-        "name": "Arms",
+        "name": "Arms+",
         "flavors": [
             { "name": "Short",
-                "exercices": []
+                "exercices": [
+                    { "name": "Shrugs", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
+                    { "name": "Calf raises", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
+                    { "name": "Chest fly", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] }
+                ]
             },
             { "name": "Long",
                 "exercices": [
-                    { "name": "Shoulder press",
+                    { "name": "Shoulder press", 
                       "sets": [{"q": "10x"},{"q": "10x"},{"q": "8x"},{"q": "4x"}] },
-                    { "name": "Shrugs",
-                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
-                    { "name": "Calf raises",
-                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
-                    { "name": "Chest fly",
+                    { "name": "Shrugs", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
+                    { "name": "Calf raises", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
+                    { "name": "Chest fly", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
+                    { "name": "Hammer curls", 
                       "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"},{"q": "10x"}] }
                 ]
             }
@@ -218,18 +246,27 @@ var config =
         "name": "Back",
         "flavors": [
             { "name": "Short",
-                "exercices": []
+                "exercices": [
+                    { "name": "Pull-downs", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
+                    { "name": "Seated cable rows", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
+                    { "name": "Lower back", 
+                      "sets": [{"q": "7x"},{"q": "7x"},{"q": "7x"},{"q": "7x"},{"q": "7x"}] }
+                ]
             },
             { "name": "Long",
                 "exercices": [
-                    { "name": "Pull-ups",
-                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
-                    { "name": "Rows",
-                      "sets": [{"q": "12x (2x)"},{"q": "12x (2x)"},{"q": "12x (2x)"}] },
-                    { "name": "Rear deltoids",
-                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
-                    { "name": "Lower back",
-                      "sets": [{"q": "7x"},{"q": "7x"},{"q": "7x"},{"q": "7x"},{"q": "7x"}] }
+                    { "name": "Pull-ups", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
+                    { "name": "Seated cable rows", 
+                      "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
+                    { "name": "Rear deltoids", 
+                      "sets": [{"q": "12x"},{"q": "12x"},{"q": "12x"}] },
+                    { "name": "Lower back", 
+                      "sets": [{"q": "7x"},{"q": "7x"},{"q": "7x"},{"q": "7x"},{"q": "7x"}] },
+                    { "name": "Single dumbell rows", 
+                      "sets": [{"q": "10x (2x)"},{"q": "10x (2x)"},{"q": "10x (2x)"}] }
                 ]
             }
         ] 
@@ -238,17 +275,24 @@ var config =
         "name": "Cardio",
         "flavors": [
             { "name": "Easy",
-                "exercices": []
+                "exercices": [
+                    { "name": "Bike", 
+                      "sets": [{"q": "10m Moderate"}]}, 
+                    { "name": "Treadmill", 
+                      "sets": [{"q": "10m @ 6kph"}]}, 
+                    { "name": "Elliptic", 
+                      "sets": [{"q": "10m Moderate"}] }
+                ]
             },
             { "name": "Intense",
                 "exercices": [
-                    { "name": "Bike",
+                    { "name": "Bike", 
                       "sets": [{"q": "10m hill climb"}]}, 
-                    { "name": "Bike",
+                    { "name": "Bike", 
                       "sets": [{"q": "10m HIIT"}]}, 
-                    { "name": "Treadmill",
+                    { "name": "Treadmill", 
                       "sets": [{"q": "10m HIIT"}]}, 
-                    { "name": "Burpees",
+                    { "name": "Burpees", 
                       "sets": [{"q": "8x"},{"q": "8x"},{"q": "8x"},{"q": "8x"}] }
                 ]
             }
@@ -257,12 +301,18 @@ var config =
 ] 
 }
 
+function debug(message) {
+    if (false) {
+        console.log("DEBUG: " + message)
+    }
+}
+
 ///////////////////////////////////////////
 // Setup  /////////////////////////////////
 ///////////////////////////////////////////
 
 function create_list(config) {
-    console.log("Creating list")
+    debug("Creating list")
 
     var i_workout = 0
     config.workouts.forEach(workout => {
@@ -273,7 +323,7 @@ function create_list(config) {
 
 function create_workout(workout, i_workout) {
     var id = i_workout.toString()
-    console.log("Creating workout " + id)
+    debug("Creating workout " + id)
 
     create_workout_html(workout, i_workout)
 
@@ -316,12 +366,12 @@ function create_workout_html(workout, i_workout) {
     var workoutlist = document.querySelector('#workout-list-page')
     workoutlist.appendChild(t_workout_applied)
 
-    console.log("Creating html for workout " + i_workout)
+    debug("Creating html for workout " + i_workout)
 }
 
 function create_workout_flavors(flavor, i_workout, i_flavor) {
     var id = i_workout.toString() + "," +  i_flavor.toString()
-    console.log("Creating workout flavor " + id)
+    debug("Creating workout flavor " + id)
 
     create_flavor_page(flavor, i_workout, i_flavor)
 
@@ -334,7 +384,7 @@ function create_workout_flavors(flavor, i_workout, i_flavor) {
 
 function create_flavor_page(flavor, i_workout, i_flavor) {
     var id = i_workout.toString() + "," +  i_flavor.toString()
-    console.log("Creating page for flavor " + id)
+    debug("Creating page for flavor " + id)
 
     // Find template we need
     var t_workout_page = document.querySelector('#t_workout-page')
@@ -350,7 +400,7 @@ function create_flavor_page(flavor, i_workout, i_flavor) {
 
 function create_flavor_exercices(exercice, i_workout, i_flavor, i_exercice) {
     var id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString()
-    console.log("Creating flavor exercices " + id)
+    debug("Creating flavor exercices " + id)
     
     create_exercice_html(exercice, i_workout, i_flavor, i_exercice)
 
@@ -363,7 +413,7 @@ function create_flavor_exercices(exercice, i_workout, i_flavor, i_exercice) {
 
 function create_exercice_html(exercice, i_workout, i_flavor, i_exercice) {
     var id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString()
-    console.log("Creating html for exercice " + id)
+    debug("Creating html for exercice " + id)
 
     var parent_id = i_workout.toString() + "," + i_flavor.toString()
 
@@ -380,7 +430,7 @@ function create_exercice_html(exercice, i_workout, i_flavor, i_exercice) {
 
 function create_exercice_sets(exercice, i_workout, i_flavor, i_exercice, i_set) {
     var id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString() + "," + i_set.toString()
-    console.log("Creating exercice set " + id)
+    debug("Creating exercice set " + id)
 
     var parent_id = i_workout.toString() + "," + i_flavor.toString() + "," + i_exercice.toString()
 
@@ -427,10 +477,10 @@ function complete_a_set(item) {
 
     if (setobject.classList.contains("greened")) {
         setobject.classList.remove("greened")
-        console.log("Took back set " + item.id)
+        debug("Took back set " + item.id)
     } else {
         setobject.classList.add("greened")
-        console.log("Completed set " + item.id)
+        debug("Completed set " + item.id)
     }
 }
 
