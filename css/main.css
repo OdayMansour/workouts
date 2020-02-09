@@ -35,7 +35,7 @@ body {
     color: #F2E6D8;
 }
 
-.greened {
+.selected {
     background-color: #F23535;
     color: black;
 }

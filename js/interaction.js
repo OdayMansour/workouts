@@ -24,13 +24,15 @@ function open_a_workout(item) {
 function complete_a_set(item) {
     var setobject = item
 
-    if (setobject.classList.contains("greened")) {
-        setobject.classList.remove("greened")
+    if (setobject.classList.contains("selected")) {
+        setobject.classList.remove("selected")
         debug("Took back set " + item.id)
     } else {
-        setobject.classList.add("greened")
+        setobject.classList.add("selected")
         debug("Completed set " + item.id)
     }
+
+    save_state()
 }
 
 function show_an_image(item) {
