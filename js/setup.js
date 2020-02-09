@@ -6,6 +6,8 @@ function create_list(config) {
         create_workout(workout, i_workout)
         i_workout++
     });
+
+    load_state()
 }
 
 function create_workout(workout, i_workout) {
@@ -130,4 +132,49 @@ function create_exercice_sets(exercice, i_workout, i_flavor, i_exercice, i_set) 
     t_set_appled.children[0].innerText = exercice["sets"][i_set]["q"]
 
     document.getElementById(parent_id).children.namedItem('sets').appendChild(t_set_appled)
+}
+
+function createCookie(key, value) {
+    var cookie = escape(key) + "=" + escape(value) + ";max-age=31536000"
+    document.cookie = cookie
+}
+
+function save_state() {
+    document.cookie = ""
+    
+    var sets = document.getElementsByClassName('set')
+    var state = '0'
+    for (var i=0; i<sets.length; i++) {
+        if ( sets[i].classList.contains('selected') ) {
+            state = '1'
+        } else {
+            state = '0'
+        }
+        createCookie(sets[i].id, state)
+    }
+
+    var expiration_date = new Date()
+    expiration_date.setFullYear(expiration_date.getFullYear() + 1)
+    var expiry = 'expires=' + expiration_date.toUTCString()
+    document.cookie = expiry;
+
+    var statement = 'path=/;domain=' + window.location.hostname
+    document.cookie = statement
+}
+
+function load_state() {
+    var ids_raw = document.cookie.split(';')
+
+    if ( ids_raw.length == 1) {
+        return
+    }
+
+    ids_raw.forEach( id_raw => {
+        id = unescape(id_raw.trim().split('=')[0])
+        state = unescape(id_raw.trim().split('=')[1])
+        if (state == '1') {
+            console.log(id)
+            document.getElementById(id).classList.add('selected')
+        }
+    })
 }
