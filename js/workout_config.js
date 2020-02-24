@@ -6,7 +6,7 @@ var config =
             { "name": "Short",
                 "exercices": [
                     { "name": "Squats", 
-                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "5x"},{"q": "5x"}] },
+                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "8x"}] },
                     { "name": "Leg extensions", 
                       "sets": [{"q": "10x"},{"q": "10x"},{"q": "7x"},{"q": "4x"}] },
                     { "name": "Inner leg abduction", 
@@ -16,7 +16,7 @@ var config =
             { "name": "Long",
                 "exercices": [
                     { "name": "Squats", 
-                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "5x"},{"q": "5x"}] },
+                      "sets": [{"q": "8x"},{"q": "8x"},{"q": "8x"}] },
                     { "name": "Lunges", 
                       "sets": [{"q": "10x"},{"q": "10x"},{"q": "10x"}] },
                     { "name": "Inner leg abduction", 
