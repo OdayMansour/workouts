@@ -141,6 +141,6 @@ body {
 .lefted {left: -100%;}
 
 .lefted, .centered, .workout_button, .workout-list-page, .workout-page, body, .lightened, .exercice-name, .expanded {
-    transition: 0.3s;
+    transition: 1s;
     animation: ease-out;
 }
